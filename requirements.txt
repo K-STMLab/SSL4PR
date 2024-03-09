@@ -1,0 +1,12 @@
+torch
+torchaudio
+scikit-learn
+scipy
+pandas
+pyyaml
+tqdm
+soundfile
+comet_ml
+addict
+git+https://github.com/sashank-tirumala/yaml_config_override.git
+spafe

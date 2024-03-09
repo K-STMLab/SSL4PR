@@ -1,0 +1,4 @@
+**/*.pyc
+checkpoints/*
+samples/*
+sh_files/*

@@ -1,0 +1,24 @@
+SSL model is whisper: False
+Number of trainable parameters: 94.37M
+Pooling embedding dim: 768
+facebook/wav2vec2-base-960h: 95.57M
+SSL model is whisper: False
+Number of trainable parameters: 94.37M
+Pooling embedding dim: 768
+facebook/hubert-base-ls960: 95.57M
+SSL model is whisper: False
+Number of trainable parameters: 94.38M
+Pooling embedding dim: 768
+microsoft/wavlm-base: 95.58M
+SSL model is whisper: False
+Number of trainable parameters: 315.45M
+Pooling embedding dim: 1024
+microsoft/wavlm-large: 316.88M
+SSL model is whisper: False
+Number of trainable parameters: 315.44M
+Pooling embedding dim: 1024
+facebook/wav2vec2-xls-r-300m: 316.87M
+SSL model is whisper: True
+Number of trainable parameters: 305.68M
+Pooling embedding dim: 1024
+openai/whisper-medium: 307.11M

@@ -1,0 +1,70 @@
+data:
+  fold_root_path: "/mnt/disk2/mfturco/Data/NN_TRAIN_TESTS_16KHz/"
+  max_length_in_seconds: 10
+  padding: max_length
+  truncation: true
+  ssl: true
+  magnitude: false
+  articulation: false
+  num_folds: 10
+  sample_rate: 16000
+  random_crop_longer_audio: true
+  repeat_shorter_audio: true
+  stft_params:
+    type: "standard" # standard, mel, mfcc, bfcc, gfcc, cochleagram
+    n_fft: 400
+    hop_length: 160
+    win_length: 400
+    n_mels: 80 # used in mel and cochleagram
+    n_fcc: 40 # used in mfcc, bfcc, gfcc
+    spec_dim: 201 # n_mels (mel) | n_fft/2 + 1 = 201 (standard) | n_mfcc (mfcc) - X3 for delta and delta delta
+    use_delta_and_delta_delta: false
+  articulation_params:
+    mean: 10.5
+    std: 10000.0
+
+model:
+  model_name_or_path: microsoft/wavlm-base-plus # jonatasgrosman/wav2vec2-large-xlsr-53-spanish
+  classifier_type: attention_pooling
+  classifier_num_layers: 2
+  classifier_hidden_size: 768
+  freeze_ssl: false
+  use_all_layers: true
+  frame_fusion: true
+  dropout: 0.1
+  increase_resolution_cnn: false
+  num_classes: null # filled dynamically -> 2 (status) | 4 (UPDRS-speech)
+  classifier_head_type: "linear" # linear, transformer
+  transformer_nhead: 6
+  transformer_dim_feedforward: 2048
+  
+
+training:
+  checkpoint_path: "checkpoints/Multimodal_WS/"
+  batch_size: 32
+  gradient_accumulation_steps: 1
+  num_epochs: 10
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  num_workers: 8
+  pin_memory: true
+  seed: 42
+  verbose: true
+
+  use_cuda: true
+  multi_gpu: true
+
+  use_comet: true
+  comet_project_name: "ssl4pr"
+  comet_experiment_name: SSL4PR
+
+  validation:
+    active: true
+    validation_split: 0.1
+    validation_type: "random" # random, speaker
+
+  label_key: "status" # status, UPDRS-speech
+
+  ext_model_path: "TO_FILL" # filled dynamically
+  ext_root_path: "TO_FILL" # filled dynamically
+  subfolders: "TO_FILL" # filled dynamically
