@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 import numpy as np
 
-from models.multimodal_classification_model import MultimodalClassificationModel
+from models.ssl_classification_model import SSLClassificationModel
 from datasets.audio_classification_dataset import AudioClassificationDataset
 
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support, roc_auc_score, confusion_matrix
@@ -115,7 +115,7 @@ if __name__ == '__main__':
     class_mapping = {"HC": 0, "PD": 1}
     
     config.model.num_classes = len(set(labels))
-    model = MultimodalClassificationModel(config=config)
+    model = SSLClassificationModel(config=config)
     model = model.eval()
     model = model.to(device)
     

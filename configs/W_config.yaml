@@ -41,7 +41,7 @@ model:
 
 training:
   checkpoint_path: "checkpoints/Multimodal_WS/"
-  batch_size: 32
+  batch_size: 64
   gradient_accumulation_steps: 1
   num_epochs: 10
   learning_rate: 0.0001
@@ -62,6 +62,9 @@ training:
     active: true
     validation_split: 0.1
     validation_type: "random" # random, speaker
+
+    metric: accuracy # loss, accuracy, f1, precision, recall
+    metric_lower_is_better: false
 
   label_key: "status" # status, UPDRS-speech
 

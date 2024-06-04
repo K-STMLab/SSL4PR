@@ -78,11 +78,6 @@ class SSLClassificationModel(nn.Module):
             self.global_embedding_dim += self.config.data.stft_params.spec_dim
         else: self.use_magnitudes = False
 
-        # if config["data"]["articulation"]:
-        #     self.articulation = True
-        #     self.global_embedding_dim += 488
-        # else: self.articulation = False
-        # *** disable articulation features for now ***
         self.articulation = False
 
         print(f"Pooling embedding dim: {self.pooling_embedding_dim}")
@@ -253,9 +248,6 @@ class SSLClassificationModel(nn.Module):
         return ssl_hidden_state
     
     def _combine_features(self, ssl_features, magnitudes):
-        # combine SSL and STFT features
-        # print(f"SSL features shape: {ssl_features.shape}")
-        # print(f"Magnitudes shape: {magnitudes.shape}")
         combined_features = torch.cat([ssl_features, magnitudes], dim=-1)
         return combined_features
 
@@ -282,8 +274,6 @@ class SSLClassificationModel(nn.Module):
             else:
                 features = magnitudes
         
-        # Do we want to use layer norm? TODO: add this to config
-        
         if features is not None:
             if self.classifier_type == "average_pooling":
                 # average pooling
@@ -291,15 +281,6 @@ class SSLClassificationModel(nn.Module):
             else:
                 # attention pooling
                 features = self.pooling_layer(features)
-
-        if self.articulation:
-            print("Articulation features is NOT supported.")
-            # articulation_features = batch["articulation"]
-            # # concatenate articulation features with pooled output
-            # if features is None:
-            #     features = articulation_features
-            # else:
-            #     features = torch.cat([features, articulation_features], dim=-1)
 
         output = self.classifier(features)
 
