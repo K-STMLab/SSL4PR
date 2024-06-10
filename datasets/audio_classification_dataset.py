@@ -1,3 +1,4 @@
+import os
 import torch
 import random
 import torchaudio
@@ -369,6 +370,12 @@ class AudioClassificationDataset(Dataset):
             item["labels"] = torch.tensor(self.class_mapping[self.labels[idx]], dtype=torch.float)
         else:
             item["labels"] = torch.tensor(self.class_mapping[self.labels[idx]], dtype=torch.long)
+            
+        # speaker_id = os.path.basename(audio_path)
+        # speaker_id = speaker_id.split("_")[0]
+        # speaker_id = speaker_id.split("-")[0]
+        # speaker_id = speaker_id.replace("readtext.wav", "")
+        # item["speaker_name"] = speaker_id
 
         # debug
         # for key in item:

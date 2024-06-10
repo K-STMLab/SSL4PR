@@ -81,6 +81,18 @@ data:
 
 where `<path_to_save_checkpoints>` is the path where the checkpoints will be saved and `<path_to_pcgita_splits>` is the path to the `pcgita_splits` folder.
 
+**Pre-trained** models are available on the Hugging Face model hub ([SSL4PR WavLM Base](https://huggingface.co/morenolq/SSL4PR-wavlm-base), [SSL4PR HuBERT Base](https://huggingface.co/morenolq/SSL4PR-hubert-base)). To use them, please clone the repository running the following command:
+
+```bash
+# SSL4PR WavLM Base
+git clone https://huggingface.co/morenolq/SSL4PR-wavlm-base
+
+# SSL4PR HuBERT Base
+git clone https://huggingface.co/morenolq/SSL4PR-hubert-base
+```
+
+Ensure you have `git lfs` installed. Each repository contains the pre-trained models, one per fold, named `fold_1.pt`, `fold_2.pt`, ..., `fold_10.pt`.
+
 #### Inference on extended dataset
 
 The paper presents the results of the proposed model on an extended dataset. The extended dataset is available in the `extended_dataset` folder. The script `infer_extended.py` can be used to infer the model on the extended dataset. The script can be used as follows:
@@ -98,6 +110,6 @@ where `<config_file>` is the path to the configuration file (e.g., `configs/W_co
 If you use this code, results from this project or you want to refer to the paper, please cite the following paper:
 
 ```
-# currently under review
+Will be available upon INTERSPEECH 2024 proceedings.
 ```
 

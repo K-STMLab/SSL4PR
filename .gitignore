@@ -3,3 +3,6 @@ checkpoints/*
 samples/*
 sh_files/*
 logs_ext/*
+analysis.sh
+images/*
+inference_only.py
