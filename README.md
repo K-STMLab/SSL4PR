@@ -110,6 +110,14 @@ where `<config_file>` is the path to the configuration file (e.g., `configs/W_co
 If you use this code, results from this project or you want to refer to the paper, please cite the following paper:
 
 ```
-Will be available upon INTERSPEECH 2024 proceedings.
+@inproceedings{laquatra24_interspeech,
+  title     = {{Exploiting Foundation Models and Speech Enhancement for Parkinson's Disease Detection from Speech in Real-World Operative Conditions}},
+  author    = {Moreno {La Quatra} and Maria Francesca Turco and Torbjørn Svendsen and Giampiero Salvi and Juan Rafael Orozco-Arroyave and Sabato Marco Siniscalchi},
+  year      = {2024},
+  booktitle = {{Interspeech 2024}},
+  pages     = {1405--1409},
+  doi       = {10.21437/Interspeech.2024-522},
+  issn      = {2958-1796},
+}
 ```
 
